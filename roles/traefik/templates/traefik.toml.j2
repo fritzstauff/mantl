@@ -14,7 +14,6 @@ watch = true
 networkInterface = "{{ ansible_default_ipv4['interface'] }}"
 ExposedByDefault = {{ traefik_marathon_expose_by_default }}
 
-defaultEntryPoints = ["http", "https"]
 [entryPoints]
   [entryPoints.http]
   address = ":80"
@@ -22,5 +21,5 @@ defaultEntryPoints = ["http", "https"]
   address = ":443"
     [entryPoints.https.tls]
       [[entryPoints.https.tls.certificates]]
-      CertFile = "/etc/traefik/certs/traefik-admin.cert.pem"
-      KeyFile = "/etc/traefik/certs/traefik-admin.key.pem"
+      CertFile = "/etc/pki/mantl/cert"
+      KeyFile = "/etc/pki/mantl/key"
