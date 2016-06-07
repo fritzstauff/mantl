@@ -4,8 +4,8 @@ defaultEntryPoints = ["http", "https"]
 
 [web]
 address = ":8081"
-CertFile = "/etc/traefik/certs/traefik-admin.cert.pem"
-KeyFile = "/etc/traefik/certs/traefik-admin.key.pem"
+CertFile = "/etc/pki/tls/certs/host.cert"
+KeyFile = "/etc/pki/tls/private/host.key"
 
 [marathon]
 endpoint = "{{ traefik_marathon_endpoint }}"
@@ -21,5 +21,5 @@ ExposedByDefault = {{ traefik_marathon_expose_by_default }}
   address = ":443"
     [entryPoints.https.tls]
       [[entryPoints.https.tls.certificates]]
-      CertFile = "/etc/pki/mantl/cert"
-      KeyFile = "/etc/pki/mantl/key"
+      CertFile = "/etc/pki/tls/certs/host.cert"
+      KeyFile = "/etc/pki/tls/private/host.key"
